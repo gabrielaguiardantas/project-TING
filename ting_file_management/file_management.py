@@ -13,8 +13,10 @@ def txt_importer(path_file):
         return
     else:
         txt_file = open(path_file).readlines()
-        correct_txt.append(txt_file[0][:-1])
-        correct_txt.append(txt_file[1][:-1])
-        correct_txt.append(txt_file[2])
+        for line in txt_file:
+            if txt_file.index(line) == len(txt_file) - 1:
+                correct_txt.append(line)
+                break
+            correct_txt.append(line[:-1])
 
         return correct_txt
